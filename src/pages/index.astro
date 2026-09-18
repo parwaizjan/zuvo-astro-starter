@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { WHATSAPP_URL } from '../consts';
+---
+
+<BaseLayout
+  title="Your Business"
+  description="A short, specific description of what this business does and who it serves."
+>
+  <Hero
+    eyebrow="Eyebrow label"
+    title="A clear, benefit-led headline."
+    description="One or two sentences explaining the offer and why it matters to the customer."
+    primaryHref={WHATSAPP_URL}
+    primaryLabel="Start a project"
+    secondaryHref="#services"
+    secondaryLabel="Learn more"
+  />
+
+  <Section id="services">
+    <div class="max-w-2xl">
+      <p class="eyebrow">What we do</p>
+      <h2 class="mt-4 font-display text-3xl tracking-tight text-ink sm:text-4xl">
+        Replace this with real content.
+      </h2>
+      <p class="mt-4 text-muted">
+        Build sections here using the shared tokens and components. Delete this placeholder.
+      </p>
+    </div>
+  </Section>
+
+  <CtaBand
+    title="A closing call to action."
+    description="Tell visitors exactly what happens next."
+    primaryHref={WHATSAPP_URL}
+    primaryLabel="Get in touch"
+  />
+</BaseLayout>

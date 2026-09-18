@@ -1,0 +1,44 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+
+<section class="mx-auto max-w-6xl px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+
+  <h1
+    class="mt-6 max-w-4xl font-display text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl"
+  >
+    {title}
+  </h1>
+
+  {description && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{description}</p>}
+
+  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+    <a href={primaryHref} class="btn-primary w-full sm:w-auto">{primaryLabel}</a>
+    {
+      secondaryHref && secondaryLabel && (
+        <a href={secondaryHref} class="btn-secondary w-full sm:w-auto">
+          {secondaryLabel}
+        </a>
+      )
+    }
+  </div>
+</section>

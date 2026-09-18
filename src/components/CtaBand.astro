@@ -1,0 +1,46 @@
+---
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  id = 'contact',
+  eyebrow,
+  title,
+  description,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+
+<section id={id} class="border-t border-line bg-surface">
+  <div class="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+    <div class="max-w-3xl">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+
+      <h2 class="mt-4 font-display text-4xl tracking-tight text-ink sm:text-5xl">{title}</h2>
+
+      {description && <p class="mt-6 text-lg leading-relaxed text-muted">{description}</p>}
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a href={primaryHref} class="btn-primary">{primaryLabel}</a>
+        {
+          secondaryHref && secondaryLabel && (
+            <a href={secondaryHref} class="btn-secondary">
+              {secondaryLabel}
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

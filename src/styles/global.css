@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neutral default palette — replace with the site's brand colors. */
+  --color-canvas: #ffffff;
+  --color-surface: #f5f5f4;
+  --color-ink: #111111;
+  --color-muted: #6b6b6b;
+  --color-line: #e5e5e5;
+  --color-accent: #111111;
+  --color-accent-dark: #000000;
+
+  /* Type — swap for the site's chosen fonts. */
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius */
+  --radius-brand: 4px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.18em] text-accent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-brand bg-accent px-5 py-3 text-sm font-medium text-canvas transition-colors hover:bg-accent-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-brand border border-line px-5 py-3 text-sm font-medium text-ink transition-colors hover:border-ink/40;
+  }
+}
