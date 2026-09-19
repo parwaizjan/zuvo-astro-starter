@@ -6,7 +6,12 @@ sets its own palette, fonts, and content.
 
 ## Creating a new site
 
-Create a repo from this template, then work through this checklist:
+```bash
+gh repo create concept-<name> --template parwaizjan/zuvo-astro-starter --private --clone
+cd concept-<name> && npm install
+```
+
+Then work through this checklist:
 
 1. `src/consts.ts` — business name, short name, domain, URL, email, WhatsApp number.
 2. `astro.config.mjs` — set `site` to the production URL.
